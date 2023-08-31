@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@kai-libs/storybook-host": ["packages/storybook-host/src/index.ts"],
+      "@kai/floating-ui-popup": ["packages/floating-ui-popup/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
