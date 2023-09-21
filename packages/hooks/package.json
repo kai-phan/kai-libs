@@ -1,5 +1,5 @@
 {
-  "name": "@kai/floating-ui-popup",
+  "name": "@kai/hooks",
   "version": "0.0.1",
   "main": "./index.js",
   "types": "./index.d.ts",
@@ -8,8 +8,5 @@
       "import": "./index.mjs",
       "require": "./index.js"
     }
-  },
-  "dependencies": {
-    "@floating-ui/react": "^0.25.3"
   }
 }

@@ -1,15 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { FloatingUiPopup } from './floating-ui-popup';
+import { Popup } from '.';
 
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
-const meta: Meta<typeof FloatingUiPopup> = {
-  component: FloatingUiPopup,
+const meta: Meta<typeof Popup> = {
+  component: Popup,
   title: 'FloatingUiPopup',
 };
+
 export default meta;
-type Story = StoryObj<typeof FloatingUiPopup>;
+type Story = StoryObj<typeof Popup>;
 
 export const Primary = {
   args: {},
