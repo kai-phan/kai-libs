@@ -6,19 +6,18 @@ You can find the storybook [here](https://floating-ui.com/).
 
 ## Problems
 
-* **Portal and positioning:** the popup should be rendered in a portal to avoid z-index problems and popup should be positioned relative to the trigger. [floating-ui](https://floating-ui.com/) solves this problem very well. 🎉
-* **Interactive and accessible:** dealing with focus, restore focus, keyboard events, and WAI-ARIA support is hard. [floating-ui](https://floating-ui.com/) also provides a good solution for this.🥳
-* **Customize:** customizing the popup like positioning, animation, and styling required a lot of effort. We might need to override a lot of CSS to achieve the desired result. 🫠
-* **Implement trade-off:** Using UI libraries like Antd, Material-UI might help us, but sometimes we just need some components like Modal or Tooltips, and also need to modify the component to adapt the design. Or creating your own components but it will take a lot of time and effort.😐
-
+- **Portal and positioning:** the popup should be rendered in a portal to avoid z-index problems and popup should be positioned relative to the trigger. [floating-ui](https://floating-ui.com/) solves this problem very well. 🎉
+- **Interactive and accessible:** dealing with focus, restore focus, keyboard events, and WAI-ARIA support is hard. [floating-ui](https://floating-ui.com/) also provides a good solution for this.🥳
+- **Customize:** customizing the popup like positioning, animation, and styling required a lot of effort. We might need to override a lot of CSS to achieve the desired result. 🫠
+- **Implement trade-off:** Using UI libraries like Antd, Material-UI might help us, but sometimes we just need some components like Modal or Tooltips, and also need to modify the component to adapt the design. Or creating your own components but it will take a lot of time and effort.😐
 
 ## Installation
 
 React has been designed for gradual adoption from the start, and **you can use as little or as much React as you need**:
 
-* Use [Online Playgrounds](https://reactjs.org/docs/getting-started.html#online-playgrounds) to get a taste of React.
-* [Add React to a Website](https://reactjs.org/docs/add-react-to-a-website.html) as a `<script>` tag in one minute.
-* [Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html) if you're looking for a powerful JavaScript toolchain.
+- Use [Online Playgrounds](https://reactjs.org/docs/getting-started.html#online-playgrounds) to get a taste of React.
+- [Add React to a Website](https://reactjs.org/docs/add-react-to-a-website.html) as a `<script>` tag in one minute.
+- [Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html) if you're looking for a powerful JavaScript toolchain.
 
 You can use React as a `<script>` tag from a [CDN](https://reactjs.org/docs/cdn-links.html), or as a `react` package on [npm](https://www.npmjs.com/package/react).
 
@@ -30,12 +29,12 @@ Check out the [Getting Started](https://react.dev/learn) page for a quick overvi
 
 The documentation is divided into several sections:
 
-* [Tutorial](https://reactjs.org/tutorial/tutorial.html)
-* [Main Concepts](https://reactjs.org/docs/hello-world.html)
-* [Advanced Guides](https://reactjs.org/docs/jsx-in-depth.html)
-* [API Reference](https://reactjs.org/docs/react-api.html)
-* [Where to Get Support](https://reactjs.org/community/support.html)
-* [Contributing Guide](https://reactjs.org/docs/how-to-contribute.html)
+- [Tutorial](https://reactjs.org/tutorial/tutorial.html)
+- [Main Concepts](https://reactjs.org/docs/hello-world.html)
+- [Advanced Guides](https://reactjs.org/docs/jsx-in-depth.html)
+- [API Reference](https://reactjs.org/docs/react-api.html)
+- [Where to Get Support](https://reactjs.org/community/support.html)
+- [Contributing Guide](https://reactjs.org/docs/how-to-contribute.html)
 
 You can improve it by sending pull requests to [this repository](https://github.com/reactjs/reactjs.org).
 
