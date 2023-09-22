@@ -38,21 +38,20 @@ export type UsePopupState = {
   isModal: boolean;
 };
 
-export type UsePopupOptions<RT extends ReferenceType = ReferenceType> = Partial<
-  UseFloatingOptions<RT>
-> &
-  UsePopupInteractionsOptions & {
-    /** Default value for `isOpen` when uncontrolled.*/
-    initialOpen?: boolean;
-    /** Offset middleware params */
-    offset?: OffsetOptions;
-    /** Flip middleware params */
-    flip?: boolean | FlipOptions;
-    /** Shift middleware params */
-    shift?: boolean | ShiftOptions;
-    /** Whether the popup is modal or not. */
-    isModal?: boolean;
-  };
+export interface UsePopupOptions<RT extends ReferenceType = ReferenceType>
+  extends Partial<UseFloatingOptions<RT>>,
+    UsePopupInteractionsOptions {
+  /** Default value for `isOpen` when uncontrolled.*/
+  initialOpen?: boolean;
+  /** Offset middleware params */
+  offset?: OffsetOptions;
+  /** Flip middleware params */
+  flip?: boolean | FlipOptions;
+  /** Shift middleware params */
+  shift?: boolean | ShiftOptions;
+  /** Whether the popup is modal or not. */
+  isModal?: boolean;
+}
 
 export type UsePopupResult<RT extends ReferenceType = ReferenceType> = {
   floating: UseFloatingReturn<RT>;

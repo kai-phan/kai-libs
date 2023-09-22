@@ -6,9 +6,9 @@ export type ChildrenRender =
   | ((popup: UsePopupResult) => React.ReactNode)
   | React.ReactNode;
 
-export type BasePopupProps = UsePopupOptions & {
+export interface BasePopupProps extends UsePopupOptions {
   children?: ChildrenRender;
-};
+}
 
 export type BasePopupRef = React.MutableRefObject<{
   open: () => void;

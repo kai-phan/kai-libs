@@ -22,7 +22,7 @@ export interface PortalProps
 
 /**
  * @description Portal component for popup, includes floating portal and focus manager.
- * @todo add props for FloatingPortal and FloatingFocusManager
+ * @todo add transition for modal
  * @see {@link https://floating-ui.com/docs/FloatingPortal}
  * */
 export const Portal: React.FC<PortalProps> = ({

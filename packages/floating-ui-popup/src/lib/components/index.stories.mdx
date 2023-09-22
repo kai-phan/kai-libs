@@ -1,0 +1,23 @@
+import { Meta, Story, Canvas, Source } from '@storybook/blocks';
+
+import { Popup } from './index';
+
+<Meta title="Floating-UI/Popup" component={Popup} />
+
+# Popup
+
+```tsx
+<Popup trigger={<button>Click me</button>}>
+  <div>Popup content</div>
+</Popup>
+```
+
+<Canvas>
+  <Story name="With trigger button" autoplay>
+    <Popup trigger={<button>Click me</button>} style={{ padding: '8px 16px' }}>
+      <div>Popup content</div>
+    </Popup>
+  </Story>
+</Canvas>
+
+

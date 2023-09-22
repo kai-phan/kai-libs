@@ -12,21 +12,22 @@ import { Trigger } from './trigger';
 
 import classes from './index.module.scss';
 
-export type PopupProps = React.PropsWithoutRef<BasePopupProps> &
-  React.RefAttributes<BasePopupRef> & {
-    /** Content element or render props */
-    children?: ChildrenRender;
-    /** Class name of popup */
-    className?: string;
-    /** Style of popup */
-    style?: React.CSSProperties;
-    /** Trigger element or render props */
-    trigger?: ChildrenRender;
-    /** Class name of trigger */
-    triggerClassName?: string;
-    /** Style of trigger */
-    triggerStyle?: React.CSSProperties;
-  };
+export interface PopupProps
+  extends React.PropsWithoutRef<BasePopupProps>,
+    React.RefAttributes<BasePopupRef> {
+  /** Content element or render props */
+  children?: ChildrenRender;
+  /** Class name of popup */
+  className?: string;
+  /** Style of popup */
+  style?: React.CSSProperties;
+  /** Trigger element or render props */
+  trigger?: ChildrenRender;
+  /** Class name of trigger */
+  triggerClassName?: string;
+  /** Style of trigger */
+  triggerStyle?: React.CSSProperties;
+}
 
 export interface IPopup {
   (props: PopupProps): JSX.Element;
