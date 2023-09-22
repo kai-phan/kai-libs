@@ -52,3 +52,11 @@ export function useControllableValue<T, E = unknown>(
     (change: Updater<T>, extra?: E) => void,
   ];
 }
+
+export function parse<V, R>(value: V, parser: (value: V) => R) {
+  return parser(value);
+}
+
+export function transform<V, R>(value: V, transformer: (value: V) => R) {
+  return transformer(value);
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ChildrenRender, usePopupContext } from '../../base';
+import { ChildrenRender, usePopupContext } from '../../core';
 import { useMergeRefs } from '@floating-ui/react';
 
 export type TriggerProps = Omit<

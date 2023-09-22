@@ -1,7 +1,7 @@
 import React from 'react';
 import { FloatingPortal, FloatingFocusManager } from '@floating-ui/react';
 
-import { ChildrenRender, usePopupContext, renderChildren } from '../../base';
+import { ChildrenRender, usePopupContext, renderChildren } from '../../core';
 
 export type PortalProps = Omit<React.ComponentProps<'div'>, 'children'> & {
   children?: ChildrenRender;

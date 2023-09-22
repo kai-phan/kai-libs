@@ -5,7 +5,7 @@ import {
   BasePopupRef,
   BasePopup,
   ChildrenRender,
-} from '../base';
+} from '../core';
 
 import { Header } from './header';
 import { Content } from './content';

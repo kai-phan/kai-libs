@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { renderChildren, ChildrenRender, usePopupContext } from '../../base';
+import { renderChildren, ChildrenRender, usePopupContext } from '../../core';
 
 export type FooterProps = Omit<
   React.ComponentPropsWithoutRef<'footer'>,
