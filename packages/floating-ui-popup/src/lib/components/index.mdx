@@ -1,0 +1,49 @@
+import { Meta, Story, Canvas, Description } from '@storybook/blocks';
+import { Controls } from '@storybook/addon-docs';
+
+import { Popup } from './index';
+
+<Meta
+  title="Floating-UI-Components/Popup"
+  component={Popup}
+  subcomponents={{
+    'Root': Popup.Root,
+  }}
+  argTypes={{
+    open: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false,
+      description: 'Whether the popup is open or not',
+      type: 'boolean'
+    }
+  }}
+/>
+
+# Popup
+
+A component that can be used to display additional information or actions. From a technical perspective, it is using [floating-ui](https://floating-ui.com/) as a base. Includes normal components likes modals, popovers, tooltips. Also includes more complex components like a popconfirm, dialog, etc.
+
+## Basic usage
+
+```tsx
+<Popup trigger={<button>Click me</button>}>
+  <div>Popup content</div>
+</Popup>
+```
+
+<Canvas>
+  <Description />
+
+  <Story name="With trigger button" autoplay>
+    <Popup trigger={<button>Click me</button>} style={{ padding: '8px 16px' }}>
+      <div>Popup content</div>
+    </Popup>
+  </Story>
+</Canvas>
+
+## Props
+<Controls />
+
+
