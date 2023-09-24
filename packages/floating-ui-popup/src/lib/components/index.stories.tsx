@@ -111,16 +111,22 @@ export const WithTriggerButton: Story = {
   },
 };
 
-export const WithTriggerFunction: Story = {
-  render() {
-    return (
-      <Popup
-        trigger={({ state }) => (
-          <button>{state.isOpen ? 'Close' : 'Open'}</button>
-        )}
-      >
-        <div style={{ padding: '8px 16px' }}>Popup Content</div>
-      </Popup>
-    );
-  },
+export const WithTriggerFunction = () => {
+  return (
+    <Popup
+      trigger={({ state }) => (
+        <button>{state.isOpen ? 'Close' : 'Open'}</button>
+      )}
+    >
+      <div style={{ padding: '8px 16px' }}>Popup Content</div>
+    </Popup>
+  );
+};
+
+export const ModalExample = () => {
+  return (
+    <Popup width={500} isModal trigger={<button>Click</button>}>
+      <div style={{ padding: '8px 16px' }}>Modal Content</div>
+    </Popup>
+  );
 };

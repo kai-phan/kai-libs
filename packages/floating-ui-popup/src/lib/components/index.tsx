@@ -7,17 +7,19 @@ import {
   ChildrenRender,
 } from '../core';
 
-import { Portal } from './portal';
+import { Portal, PortalProps } from './portal';
 import { Trigger } from './trigger';
 import { Content } from './content';
-import { FocusManager } from './focusManager';
+import { FocusManager, FocusManagerProps } from './focusManager';
 import { Overlay } from './overlay';
 
 import classes from './index.module.scss';
 
 export interface PopupProps
   extends React.PropsWithoutRef<BasePopupProps>,
-    React.RefAttributes<BasePopupRef> {
+    React.RefAttributes<BasePopupRef>,
+    Omit<FocusManagerProps, 'children' | 'modal'>,
+    Omit<PortalProps, 'children'> {
   /** Content element or render props */
   children?: ChildrenRender;
   /** Class name of popup */
@@ -30,6 +32,12 @@ export interface PopupProps
   triggerClassName?: string;
   /** Style of trigger */
   triggerStyle?: React.CSSProperties;
+  /** apply when pop up is a Modal */
+  lockScroll?: boolean;
+  /** Class name of overlay */
+  overlayClassName?: string;
+  /** Width of popup */
+  width?: number;
 }
 
 export interface IPopup {
@@ -44,7 +52,7 @@ export interface IPopup {
 
   CLASSNAME: string;
   TRIGGER_CLASSNAME: string;
-  PORTAL_CLASSNAME: string;
+  OVERLAY_CLASSNAME: string;
 }
 
 function InnerPopup(props: PopupProps, ref) {
@@ -55,6 +63,26 @@ function InnerPopup(props: PopupProps, ref) {
     className,
     children,
     style,
+    width,
+
+    /** Focus manager props */
+    disabled,
+    order,
+    initialFocus,
+    guards,
+    returnFocus,
+    visuallyHiddenDismiss,
+    closeOnFocusOut,
+
+    /** Portal props */
+    id,
+    root,
+    preserveTabOrder,
+
+    /** Overlay props */
+    lockScroll,
+    overlayClassName,
+
     ...rest
   } = props;
 
@@ -66,17 +94,41 @@ function InnerPopup(props: PopupProps, ref) {
 
   const popupProps = {
     className: className || Popup.CLASSNAME,
-    style,
+    style: {
+      ...style,
+      width,
+    },
     children,
+  };
+
+  const focusManagerProps = {
+    disabled,
+    order,
+    initialFocus,
+    guards,
+    returnFocus,
+    visuallyHiddenDismiss,
+    closeOnFocusOut,
+  };
+
+  const portalProps = {
+    id,
+    root,
+    preserveTabOrder,
+  };
+
+  const overlayProps = {
+    lockScroll: lockScroll || true,
+    className: overlayClassName || Popup.OVERLAY_CLASSNAME,
   };
 
   return (
     <Popup.Root {...rest} ref={ref}>
       {trigger && <Popup.Trigger {...triggerProps} />}
 
-      <Popup.Portal>
-        <Popup.Overlay>
-          <Popup.FocusManager>
+      <Popup.Portal {...portalProps}>
+        <Popup.Overlay {...overlayProps}>
+          <Popup.FocusManager {...focusManagerProps}>
             <Popup.Content {...popupProps} />
           </Popup.FocusManager>
         </Popup.Overlay>
@@ -95,5 +147,5 @@ Popup.FocusManager = FocusManager;
 Popup.Overlay = Overlay;
 
 Popup.TRIGGER_CLASSNAME = classes.trigger;
-Popup.PORTAL_CLASSNAME = classes.portal;
+Popup.OVERLAY_CLASSNAME = classes.overlay;
 Popup.CLASSNAME = classes.popup;

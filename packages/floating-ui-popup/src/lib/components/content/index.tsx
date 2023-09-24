@@ -19,7 +19,7 @@ export const Content: React.FC<ContentProps> = ({
       aria-describedby={state.descriptionId}
       aria-labelledby={state.labelId}
       ref={floating.refs.setFloating}
-      style={{ ...style, ...floating.floatingStyles }}
+      style={{ ...style, ...(state.isModal ? {} : floating.floatingStyles) }}
       {...interactions.getFloatingProps(rest)}
     >
       {renderChildren(children, popup)}
