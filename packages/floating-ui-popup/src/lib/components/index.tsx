@@ -9,6 +9,9 @@ import {
 
 import { Portal } from './portal';
 import { Trigger } from './trigger';
+import { Content } from './content';
+import { FocusManager } from './focusManager';
+import { Overlay } from './overlay';
 
 import classes from './index.module.scss';
 
@@ -35,7 +38,11 @@ export interface IPopup {
   Root: typeof BasePopup;
   Portal: typeof Portal;
   Trigger: typeof Trigger;
+  Content: typeof Content;
+  FocusManager: typeof FocusManager;
+  Overlay: typeof Overlay;
 
+  CLASSNAME: string;
   TRIGGER_CLASSNAME: string;
   PORTAL_CLASSNAME: string;
 }
@@ -58,7 +65,7 @@ function InnerPopup(props: PopupProps, ref) {
   };
 
   const popupProps = {
-    className: className || Popup.PORTAL_CLASSNAME,
+    className: className || Popup.CLASSNAME,
     style,
     children,
   };
@@ -66,7 +73,14 @@ function InnerPopup(props: PopupProps, ref) {
   return (
     <Popup.Root {...rest} ref={ref}>
       {trigger && <Popup.Trigger {...triggerProps} />}
-      <Popup.Portal {...popupProps} />
+
+      <Popup.Portal>
+        <Popup.Overlay>
+          <Popup.FocusManager>
+            <Popup.Content {...popupProps} />
+          </Popup.FocusManager>
+        </Popup.Overlay>
+      </Popup.Portal>
     </Popup.Root>
   );
 }
@@ -76,5 +90,10 @@ export const Popup = React.forwardRef(InnerPopup) as unknown as IPopup;
 Popup.Portal = Portal;
 Popup.Trigger = Trigger;
 Popup.Root = BasePopup;
+Popup.Content = Content;
+Popup.FocusManager = FocusManager;
+Popup.Overlay = Overlay;
+
 Popup.TRIGGER_CLASSNAME = classes.trigger;
 Popup.PORTAL_CLASSNAME = classes.portal;
+Popup.CLASSNAME = classes.popup;
