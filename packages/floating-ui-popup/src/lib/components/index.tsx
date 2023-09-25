@@ -138,6 +138,7 @@ function InnerPopup(props: PopupProps, ref) {
 }
 
 export const Popup = React.forwardRef(InnerPopup) as unknown as IPopup;
+export * from '../core';
 
 Popup.Portal = Portal;
 Popup.Trigger = Trigger;

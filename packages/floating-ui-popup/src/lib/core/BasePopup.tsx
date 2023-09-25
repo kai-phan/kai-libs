@@ -10,10 +10,10 @@ export interface BasePopupProps extends UsePopupOptions {
   children?: ChildrenRender;
 }
 
-export type BasePopupRef = React.MutableRefObject<{
+export type BasePopupRef = {
   open: () => void;
   close: () => void;
-}>;
+};
 
 const PopupContext = React.createContext<UsePopupResult | null>(null);
 
@@ -45,10 +45,8 @@ export const BasePopup = React.forwardRef<BasePopupRef, BasePopupProps>(
     const popup = usePopup(rest);
 
     React.useImperativeHandle(ref, () => ({
-      current: {
-        open: () => popup.state.setIsOpen(true),
-        close: () => popup.state.setIsOpen(false),
-      },
+      open: () => popup.state.setIsOpen(true),
+      close: () => popup.state.setIsOpen(false),
     }));
 
     return (

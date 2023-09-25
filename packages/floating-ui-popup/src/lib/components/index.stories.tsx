@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
 import * as DocBlock from '@storybook/addon-docs';
+import React from 'react';
 
-import { Popup, PopupProps } from './index';
+import { Popup, PopupProps, BasePopupRef } from './index';
 
 const meta: Meta<PopupProps> = {
   title: 'Floating-UI-Components/Popup',
@@ -34,6 +35,10 @@ const meta: Meta<PopupProps> = {
               story={'Basic'}
             />
             <DocBlock.Stories />
+
+            <DocBlock.Subheading>
+              Create your own components
+            </DocBlock.Subheading>
           </>
         );
       },
@@ -123,10 +128,80 @@ export const WithTriggerFunction = () => {
   );
 };
 
+export const PopoverExample = () => {
+  return (
+    <Popup trigger={<button>Click</button>}>
+      {({ state }) => {
+        return (
+          <div style={{ padding: '8px 16px' }}>
+            <p>Popover Content</p>
+            <input type="text" />
+
+            <button onClick={() => state.setIsOpen(false)}>Confirm</button>
+          </div>
+        );
+      }}
+    </Popup>
+  );
+};
+
 export const ModalExample = () => {
   return (
     <Popup width={500} isModal trigger={<button>Click</button>}>
       <div style={{ padding: '8px 16px' }}>Modal Content</div>
+    </Popup>
+  );
+};
+
+export const ModalControlledExample = () => {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <>
+      <button onClick={() => setOpen(true)}>Open</button>
+
+      <Popup width={500} isModal open={open} onOpenChange={setOpen}>
+        <div style={{ padding: '8px 16px' }}>
+          <p>Modal Content</p>
+          <button onClick={() => setOpen(false)}>Close</button>
+        </div>
+      </Popup>
+    </>
+  );
+};
+
+export const ModalRefExample = () => {
+  const popupRef = React.useRef<BasePopupRef>(null);
+
+  return (
+    <>
+      <button onClick={() => popupRef.current?.open()}>Open</button>
+
+      <Popup width={500} isModal ref={popupRef}>
+        <div style={{ padding: '8px 16px' }}>
+          <p>Modal Content</p>
+          <button onClick={() => popupRef.current?.close()}>Close</button>
+        </div>
+      </Popup>
+    </>
+  );
+};
+
+export const DrawerExample = () => {
+  return (
+    <Popup
+      width={300}
+      isModal
+      trigger={<button>Click</button>}
+      style={{
+        backgroundColor: 'white',
+        position: 'fixed',
+        bottom: 0,
+        left: 0,
+        top: 0,
+      }}
+    >
+      <div style={{ padding: '8px 16px' }}>Drawer Content</div>
     </Popup>
   );
 };
