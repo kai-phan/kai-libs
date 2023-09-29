@@ -18,6 +18,9 @@
     "paths": {
       "@kai-libs/react-table-ui": ["packages/react-table-ui/src/index.ts"],
       "@kai-libs/storybook-host": ["packages/storybook-host/src/index.ts"],
+      "@kai/floatiing-ui-components": [
+        "packages/floating-ui-components/src/index.ts"
+      ],
       "@kai/floating-ui-popup": ["packages/floating-ui-popup/src/index.ts"],
       "@kai/hooks": ["packages/hooks/src/index.ts"]
     }
