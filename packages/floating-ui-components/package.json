@@ -1,0 +1,15 @@
+{
+  "name": "@kai/floatiing-ui-components",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "@floating-ui/react": "^0.25.4"
+  }
+}
