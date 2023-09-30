@@ -11,12 +11,16 @@ export interface ItemProps
 }
 
 const ItemInner = (props: ItemProps, propRef) => {
-  const { getItemProps } = useMenuItem({
+  const { getItemProps, isActive } = useMenuItem({
     ref: propRef,
     ...props,
   });
 
-  return <button {...getItemProps()}>{props.label}</button>;
+  return (
+    <button {...getItemProps()} style={{ color: isActive ? 'red' : undefined }}>
+      {props.label}
+    </button>
+  );
 };
 
 export const useMenuItem = (options: ItemProps = {}) => {
@@ -32,7 +36,6 @@ export const useMenuItem = (options: ItemProps = {}) => {
         ...interactions?.getItemProps({
           type: 'button',
           role: 'menuitem',
-          ref,
           ...options,
           ...userProps,
           onClick: (event) => {
@@ -41,6 +44,7 @@ export const useMenuItem = (options: ItemProps = {}) => {
             tree?.events.emit('click', event);
           },
         }),
+        ref,
       };
     },
   };

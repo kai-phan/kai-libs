@@ -3,6 +3,8 @@ import React from 'react';
 import { Root } from './Root';
 import { Item } from './Item';
 
+import classes from './index.module.scss';
+
 export interface MenuProps {
   ref?: React.Ref<any>;
   children?: React.ReactNode;
@@ -16,7 +18,7 @@ export interface IMenu {
 }
 
 export const MenuInner = (props: MenuProps, ref) => {
-  return <Menu.Root ref={ref} {...props} />;
+  return <Menu.Root ref={ref} {...props} className={classes.menu} />;
 };
 
 export const Menu = React.forwardRef(MenuInner) as unknown as IMenu;

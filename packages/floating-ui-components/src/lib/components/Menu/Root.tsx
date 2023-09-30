@@ -28,6 +28,7 @@ import { useControllableValue } from '@kai/hooks';
 export interface MenuProps {
   ref?: React.Ref<any>;
   children?: React.ReactNode;
+  className?: string;
 }
 
 export type UseMenuResult = ReturnType<typeof useMenu>;
@@ -79,6 +80,7 @@ const RootInner = (props: MenuProps, propRef) => {
                   ref={floating.refs.setFloating}
                   style={floating.floatingStyles}
                   {...interactions.getFloatingProps()}
+                  className={props.className}
                 >
                   {props.children}
                 </div>
